@@ -7,11 +7,12 @@
 }
 
 .game-container {
+  background-color: #209645;
   width: 100%;
   padding-top: 40px;
 
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -27,13 +28,12 @@ h1 {
 }
 
 .gallows-image img {
-  height: 60vh;
-  margin-left: 60px;
+  height: 50vh;
 }
 
 .choose-word {
-  height: 60vh;
-  margin-right: 60px;
+  background-color: yellow;
+  height: 50vh;
 
   display: flex;
   flex-direction: column;
@@ -67,6 +67,7 @@ h1 {
 }
 
 .container-letters {
+  background-color: pink;
   width: 100%;
 
   display: flex;
@@ -75,9 +76,9 @@ h1 {
 }
 
 .letters {
-  width: 70vw;
+  width: 50vw;
   height: 13vh;
-  margin-top: 50px;
+  margin-top: 30px;
 
   display: flex;
   flex-direction: column;
@@ -85,7 +86,7 @@ h1 {
   flex-wrap: wrap;
 }
 
-.letters button {
+.letters-unselected  {
   width: 3vw;
   height: 5vh;
   border-radius: 3px;
@@ -99,6 +100,20 @@ h1 {
   cursor: pointer;
 }
 
-.letters button:hover {
-    background-color: #b2d1e6;
+.letters-selected {
+  width: 3vw;
+  height: 5vh;
+  border-radius: 3px;
+  background-color: #f8d166;
+  border: 1px solid #7aa7c7;
+  font-size: 16px;
+  color: #39739d;
+  line-height: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
+
+
+
+

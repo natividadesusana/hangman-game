@@ -1,4 +1,6 @@
-export default function Letters() {
+import React, { useState } from "react";
+
+export default function Letters(props) {
   const alphabet = [
     "a",
     "b",
@@ -32,13 +34,39 @@ export default function Letters() {
     <div className="container-letters">
       <div className="letters">
         {alphabet.map((letter) => (
-          <button key={letter} disabled>
-            {letter.toUpperCase()}
-          </button>
+          <Buttons
+            clicked={() => props.clickedLetter(letter)}
+            started={starting}
+            key={letter}
+            buttons={letter.toUpperCase()}
+          />
         ))}
       </div>
     </div>
   );
 }
 
+function Buttons(props) {
+  const [disabledButton, setDisabledButton] = useState(false);
 
+  function disabling() {
+    setDisabledButton(true)
+  }
+
+  return (
+    <button
+      onClick={() => {
+        props.clicked();
+        disabling();
+      }}
+      className={
+        props.started || disabledButton
+          ? "letters-selected"
+          : "letters-unselected"
+      }
+      disabled={props.started || disabledButton}
+    >
+      {props.buttons}
+    </button>
+  );
+}
