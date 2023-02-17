@@ -1,15 +1,15 @@
+
 export default function Game(props) {
 
   return (
     <div>
       <h1>Jogo da Forca</h1>
-
       <div className="game-container">
         <div className="gallows-image">
-        {/* testando */}
-        {/* <img src="../src/assets/img/forca0.png" alt="gallows"></img> */} 
-
-          <img src={`./assets/img/forca${props.errorNumbers}.png`} alt="gallows"></img>
+          <img
+            src={`../assets/img/forca${props.errorNumbers}.png`}
+            alt="gallows"
+          ></img>
         </div>
 
         <div className="choose-word">
@@ -25,3 +25,4 @@ export default function Game(props) {
     </div>
   );
 }
+

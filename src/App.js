@@ -1,25 +1,33 @@
 import React, { useState } from "react";
 import Game from "./components/Game";
 import Letters from "./components/Letters";
-import palavras from "../src/palavras";
+import Kick from "./components/Kick";
+import palavras from "./palavras";
+
+
+let word = [];
+let underline = "";
+let reset = false;
+
 
 export default function App() {
+
   const [stateWord, setStateWord] = useState("");
   const [error, setError] = useState(0);
   const [start, setStart] = useState(true);
   const [statusGame, setStatusGame] = useState("");
+  const [kick, setKick] = React.useState("");
 
-  let word = [];
-  let underline = "";
-  let reset = false;
 
   function reload() {
     document.location.reload();
   }
 
+
   function shuffle() {
     return Math.random() - 0.5;
   }
+
 
   function startGame() {
     if (reset) {
@@ -40,6 +48,7 @@ export default function App() {
     setStateWord(underline);
   }
 
+
   function letterClicked(buttons) {
     let positions = [];
     for (let i = 0; i < word.length; i++) {
@@ -57,7 +66,45 @@ export default function App() {
     } else {
       setError(error + 1);
     }
+    endGame();
   }
+
+
+  function kickGame() {
+    if (word.join("") === kick.toLowerCase()) {
+      setStatusGame("userWon");
+      setStateWord(word);
+      setStart(true);
+      reset = true;
+    } else if (word.join("") !== kick.toLowerCase()) {
+      setStatusGame("userLost");
+      setError(6);
+      setStart(true);
+      setStateWord(word);
+      reset = true;
+    }
+  }
+
+
+  function changeInput(e) {
+    setKick(e.target.value);
+  }
+
+
+  function endGame() {
+    if (error > 5 && underline !== word.join("")) {
+      setStatusGame("userLost");
+      setStart(true);
+      setStateWord(word);
+      setError(6);
+      reset = true;
+    } else if (underline === word.join("")) {
+      setStatusGame("userWon");
+      setStart(true);
+      reset = true;
+    }
+  }
+
 
   return (
     <>
@@ -70,6 +117,12 @@ export default function App() {
         errorNumbers={error}
       />
       <Letters clickedLetter={letterClicked} starting={start} />
+      <Kick
+        starting={start}
+        kicking={kick}
+        inputChange={changeInput}
+        intuition={kickGame}
+      />
     </>
   );
 }
