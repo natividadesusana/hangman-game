@@ -35,9 +35,9 @@ export default function Letters(props) {
       <div className="letters">
         {alphabet.map((letter) => (
           <Buttons
-            clicked={() => props.clickedLetter(letter)}
-            started={starting}
             key={letter}
+            clicked={() => props.clickedLetter(letter)}
+            started={props.starting}
             buttons={letter.toUpperCase()}
           />
         ))}
@@ -50,7 +50,7 @@ function Buttons(props) {
   const [disabledButton, setDisabledButton] = useState(false);
 
   function disabling() {
-    setDisabledButton(true)
+    setDisabledButton(true);
   }
 
   return (
