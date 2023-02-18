@@ -16,7 +16,7 @@ export default function Game(props) {
             Escolher Palavra
           </button>
 
-          <p data-test="word" answer={props.newWord} statusWord={props.status}>
+          <p data-test="word" answer={props.newWord} className={`wordChoose ${props.status}`}>
             {props.state}
           </p>
         </div>
