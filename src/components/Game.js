@@ -1,3 +1,4 @@
+import forca6 from "../assets/img/forca6.png"
 
 export default function Game(props) {
 
@@ -6,6 +7,7 @@ export default function Game(props) {
       <h1>Jogo da Forca</h1>
       <div className="game-container">
         <div className="gallows-image">
+          <img src={forca6}></img>
           <img
             src={`../assets/img/forca${props.errorNumbers}.png`}
             alt="gallows"

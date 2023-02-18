@@ -5,6 +5,7 @@ import Kick from "./components/Kick";
 import palavras from "./palavras";
 
 
+
 let word = [];
 let underline = "";
 let reset = false;
@@ -24,9 +25,7 @@ export default function App() {
   }
 
 
-  function shuffle() {
-    return Math.random() - 0.5;
-  }
+ 
 
 
   function startGame() {
@@ -37,6 +36,11 @@ export default function App() {
     setError(0);
 
     palavras.sort(shuffle);
+    
+    function shuffle() {
+      return Math.random() - 0.5;
+    }
+    
     word = Array.from(palavras[palavras.length - 1]);
 
     setStart(false);

@@ -31,12 +31,11 @@ export default function Letters(props) {
   ];
 
   return (
-    <>
       <div className="container-letters">
         <div className="letters">
           {alphabet.map((letter) => (
             <Buttons
-              key={letter}
+              // key={letter}
               clicked={() => props.clickedLetter(letter)}
               started={props.starting}
               buttons={letter.toUpperCase()}
@@ -44,22 +43,6 @@ export default function Letters(props) {
           ))}
         </div>
       </div>
-      
-
-      {/* teste... isso não fica aqui */}
-      {/* <div className="container-kick">
-        <p>Já sei a palavra!</p>
-        <input
-          change={props.inputChange}
-          disabled={props.starting}
-          value={props.kicking}
-        ></input>
-        <button onClick={props.intuition} disabled={props.starting}>
-          CHUTAR
-        </button>
-      </div> */}
-
-    </>
   );
 }
 
@@ -72,6 +55,7 @@ function Buttons(props) {
 
   return (
     <button
+      disabled={props.started || disabledButton}
       onClick={() => {
         props.clicked();
         disabling();
@@ -81,7 +65,7 @@ function Buttons(props) {
           ? "letters-selected"
           : "letters-unselected"
       }
-      disabled={props.started || disabledButton}
+      
     >
       {props.buttons}
     </button>
