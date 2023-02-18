@@ -9,7 +9,10 @@ export default function Kick(props) {
         value={props.kicking}
         onChange={props.inputChange}
       ></input>
-      <button data-test="guess-button" onClick={props.intuition} disabled={props.starting}>
+      <button
+        data-test="guess-button" 
+        onClick={props.intuition} 
+        disabled={props.starting}>
         Chutar
       </button>
     </div>

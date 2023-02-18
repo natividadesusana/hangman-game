@@ -45,16 +45,16 @@ export default function App() {
     setStart(false);
     underline = "";
     for (let i = 0; i < word.length; i++) {
-      underline += " _ ";
+      underline += "_";
     }
     setStateWord(underline);
   }
 
   function letterClicked(buttons) {
     let positions = [];
-    for (let i = 0; i < word.length; i++) {
-      if (buttons === word[i]) {
-        positions.push(i);
+    for (let z = 0; z < word.length; z++) {
+      if (buttons === word[z]) {
+        positions.push(z);
       }
     }
     if (positions.length !== 0) {
@@ -99,6 +99,7 @@ export default function App() {
       setStateWord(word);
       reset = true;
       alert("Você perdeu!");
+      setImage(forca6)
     }
   }
 
@@ -113,6 +114,7 @@ export default function App() {
       setStateWord(word);
       setError(6);
       alert("Você perdeu!");
+      setImage(forca6)
       reset = true;
     } else if (underline === word.join("")) {
       setStatusGame("userWon");
