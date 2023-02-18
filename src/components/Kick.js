@@ -4,11 +4,12 @@ export default function Kick(props) {
     <div className="container-kick">
       <p>Já sei a palavra!</p>
       <input
+        data-test="guess-input"
         disabled={props.starting}
         value={props.kicking}
         onChange={props.inputChange}
       ></input>
-      <button onClick={props.intuition} disabled={props.starting}>
+      <button data-test="guess-button" onClick={props.intuition} disabled={props.starting}>
         Chutar
       </button>
     </div>

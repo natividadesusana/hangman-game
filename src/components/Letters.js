@@ -55,6 +55,7 @@ function Buttons(props) {
 
   return (
     <button
+      data-test="letter"
       disabled={props.started || disabledButton}
       onClick={() => {
         props.clicked();

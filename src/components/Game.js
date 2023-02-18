@@ -8,18 +8,18 @@ export default function Game(props) {
       <div className="game-container">
         <div className="gallows-image">
           <img src={forca6}></img>
-          <img
+          <img data-test="game-image"
             src={`../assets/img/forca${props.errorNumbers}.png`}
             alt="gallows"
           ></img>
         </div>
 
         <div className="choose-word">
-          <button onClick={props.gameStarted} disabled={props.starting}>
+          <button data-test="choose-word" onClick={props.gameStarted} disabled={props.starting}>
             Escolher Palavra
           </button>
 
-          <p answer={props.newWord} statusWord={props.status}>
+          <p data-test="word" answer={props.newWord} statusWord={props.status}>
             {props.state}
           </p>
         </div>
