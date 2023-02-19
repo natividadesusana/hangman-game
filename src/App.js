@@ -24,8 +24,8 @@ export default function App() {
   const [kick, setKick] = useState("");
   const [image, setImage] = useState(forca0);
 
-  const specialCharacters = palavras.map((c) =>
-  c.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+  let specialCharacters = palavras.map((c) =>
+  c.normalize("NFD").replace(/[^a-z\s]/g, "")
 );
 
   function reload() {
