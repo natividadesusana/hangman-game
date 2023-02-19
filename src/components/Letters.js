@@ -33,7 +33,13 @@ export default function Letters(props) {
   return (
     <div className="container-letters">
       <div className="letters">
-        {alphabet.map((letter) => <Buttons clicked={() => props.clickedLetter(letter)} started={props.starting} buttons={letter.toUpperCase()}/>)}
+        {alphabet.map((letter) => (
+          <Buttons
+            clicked={() => props.clickedLetter(letter)}
+            started={props.starting}
+            buttons={letter.toUpperCase()}
+          />
+        ))}
       </div>
     </div>
   );
@@ -49,12 +55,17 @@ function Buttons(props) {
   return (
     <button
       data-test="letter"
-      disabled={props.started || disabledButton}
       onClick={() => {
         props.clicked();
         disabling();
       }}
-      className={(props.started || disabledButton) ? "letters-selected" : "letters-unselected"}>
+      className={
+        props.started || disabledButton
+          ? "letters-selected"
+          : "letters-unselected"
+      }
+      disabled={props.started || disabledButton}
+    >
       {props.buttons}
     </button>
   );

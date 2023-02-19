@@ -24,8 +24,16 @@ export default function App() {
   const [kick, setKick] = useState("");
   const [image, setImage] = useState(forca0);
 
+  const specialCharacters = palavras.map((c) =>
+  c.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+);
+
   function reload() {
     document.location.reload();
+  }
+
+  function shuffle() {
+    return Math.random() - 0.5;
   }
 
   function startGame() {
@@ -36,12 +44,7 @@ export default function App() {
     setError(0);
     setImage(forca0);
     palavras.sort(shuffle);
-
-    function shuffle() {
-      return Math.random() - 0.5;
-    }
-
-    word = Array.from(palavras[palavras.length - 1]);
+    word = Array.from(specialCharacters[palavras.length - 1]);
     setStart(false);
     underline = "";
     for (let i = 0; i < word.length; i++) {
@@ -99,7 +102,7 @@ export default function App() {
       setStateWord(word);
       reset = true;
       alert("Você perdeu!");
-      setImage(forca6)
+      setImage(forca6);
     }
   }
 
@@ -114,7 +117,7 @@ export default function App() {
       setStateWord(word);
       setError(6);
       alert("Você perdeu!");
-      setImage(forca6)
+      setImage(forca6);
       reset = true;
     } else if (underline === word.join("")) {
       setStatusGame("userWon");
@@ -135,7 +138,9 @@ export default function App() {
         errorNumbers={error}
         imgGallows={image}
       />
-      <Letters clickedLetter={letterClicked} starting={start} />
+      <Letters 
+        clickedLetter={letterClicked} 
+        starting={start} />
       <Kick
         starting={start}
         kicking={kick}
