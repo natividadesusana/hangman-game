@@ -1,5 +1,4 @@
 export default function Game(props) {
-  
   return (
     <div>
       <h1>Jogo da Forca</h1>

@@ -24,10 +24,6 @@ export default function App() {
   const [kick, setKick] = useState("");
   const [image, setImage] = useState(forca0);
 
-  let specialCharacters = palavras.map((c) =>
-  c.normalize("NFD").replace(/[^a-z\s]/g, "")
-);
-
   function reload() {
     document.location.reload();
   }
@@ -44,7 +40,7 @@ export default function App() {
     setError(0);
     setImage(forca0);
     palavras.sort(shuffle);
-    word = Array.from(specialCharacters[palavras.length - 1]);
+    word = Array.from(palavras[palavras.length - 1].normalize("NFD").replace(/[^a-z\s]/g, ""));
     setStart(false);
     underline = "";
     for (let i = 0; i < word.length; i++) {
@@ -54,14 +50,14 @@ export default function App() {
   }
 
   function letterClicked(buttons) {
-    let positions = [];
+    const positions = [];
     for (let z = 0; z < word.length; z++) {
       if (buttons === word[z]) {
         positions.push(z);
       }
     }
     if (positions.length !== 0) {
-      let mapping = Array.from(underline);
+      const mapping = Array.from(underline);
       for (let x = 0; x < positions.length; x++) {
         mapping[positions[x]] = buttons;
       }
@@ -89,13 +85,13 @@ export default function App() {
   }
 
   function kickGame() {
-    if (word.join("") === kick.toLowerCase()) {
+    if (word.join("") === kick.toLowerCase().normalize("NFD").replace(/[^a-z\s]/g, "")) {
       setStatusGame("userWon");
       setStateWord(word);
       setStart(true);
       reset = true;
       alert("Você ganhou!");
-    } else if (word.join("") !== kick.toLowerCase()) {
+    } else if (word.join("") !== kick.toLowerCase().normalize("NFD").replace(/[^a-z\s]/g, "")) {
       setStatusGame("userLost");
       setError(6);
       setStart(true);
@@ -138,9 +134,7 @@ export default function App() {
         errorNumbers={error}
         imgGallows={image}
       />
-      <Letters 
-        clickedLetter={letterClicked} 
-        starting={start} />
+      <Letters clickedLetter={letterClicked} starting={start} />
       <Kick
         starting={start}
         kicking={kick}
