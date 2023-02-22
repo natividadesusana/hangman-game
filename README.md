@@ -1,3 +1,15 @@
+# Hangman Project 
+
+<img align="left" width="495" alt="Captura de Tela 2023-02-22 às 10 23 29" src="https://user-images.githubusercontent.com/95102911/220632528-81dce034-4f04-4342-930b-b0a12f6db0dd.png?raw=true">
+
+<img width="495" alt="Captura de Tela 2023-02-22 às 10 26 03" src="https://user-images.githubusercontent.com/95102911/220633073-a3c7411b-b7d0-4df9-81bd-7ff3bde396df.png">
+
+<img align="left" width="495" alt="Captura de Tela 2023-02-22 às 10 27 33" src="https://user-images.githubusercontent.com/95102911/220633421-99284e40-e600-4146-828b-b6da9813614e.png?raw=true">
+
+<img width="495" alt="Captura de Tela 2023-02-22 às 10 39 24" src="https://user-images.githubusercontent.com/95102911/220636115-782aa2ed-bf01-473e-aa81-d99387ab5737.png">
+
+____
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +80,43 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+______
+
+# ✅ Requirements
+
+- Componentization
+     - [ ] Your game should have 3 components:
+         - [ ] `App` (will call the other components)
+         - [ ] `Game` (Gallows image, start button, game word)
+         - [ ] `Letters` (set of buttons with the letters)
+- Pre-game
+     - [ ] Create a file called `palavras.js` and place it inside the `src` folder (the name and location need to be these or the evaluation will fail!).
+     - [ ] Inside the file, insert the available array of words.
+- This array has strings that will be the words that the player must guess. You must import this array into the `App` component to use it.
+- You must not change the array name nor the export! But if you want to change the content to add words, feel free! 😄
+- Leave only the words in this file. **Do not export or implement anything else in the file** (like a function to choose a word, for example) as the file could be overwritten during the automatic evaluation.
+- [ ] Letter buttons must be mapped via an alphabet array
+- [ ] Before the game starts, input and letter buttons must be disabled.
+     - Disabled buttons **must** have the `disabled` attribute in the HTML.
+- By pressing “Choose Word”
+     - [ ] Letters become enabled.
+     - [ ] The error count at this point is 0, the empty gallows image is shown.
+     - [ ] You must draw one of the words from the array that is in the `palavras.js` file for the user to try to guess.
+     - [ ] The word to be guessed appears on the screen, with an *underline* ( `_` ) for each letter that the word has.
+- By pressing a letter
+     - [ ] The button of a letter already clicked must be disabled.
+     - [ ] If the word chosen in the game has the letter that the user pressed:
+         - [ ] The *underscore* of the position corresponding to the letter must be replaced by the letter itself.
+         - [ ] The available words don't have special characters, so you don't have to worry about that!
+     - [ ] If the word chosen in the game does NOT have the letter that the user pressed:
+         - [ ] Your error count should increase.
+         - [ ] The gallows image must change (forca0 > gallows1 > gallows2… and so on).
+- End of the game
+     - [ ] Letter buttons must be disabled.
+     - [ ] If the user wins:
+         - [ ] When the user wins, the complete word is in **green** and the buttons are disabled again.
+         - [ ] To continue playing, the user must press the “Choose Word” button, and the game will restart from scratch.
+     - [ ] If the user loses:
+         - [ ] The final image that should appear is that of the hanged doll (forca6).
+         - [ ] The word must be revealed, but in **red.**
