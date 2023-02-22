@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 export default function Letters({clickedLetter, starting}) {
-  
   const alphabet = [
     "a",
     "b",
@@ -48,7 +47,6 @@ export default function Letters({clickedLetter, starting}) {
 }
 
 function Buttons({clicked, started, buttons}) {
-
   const [disabledButton, setDisabledButton] = useState(false);
 
   function disabling() {

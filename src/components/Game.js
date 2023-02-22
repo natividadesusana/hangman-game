@@ -1,5 +1,4 @@
 export default function Game({imgGallows, gameStarted, starting, newWord, status, state}) {
-  
   return (
     <div>
       <h1>Jogo da Forca</h1>

@@ -1,5 +1,4 @@
 export default function Kick({starting, inputChange, kicking, intuition}) {
-
   return (
     <div className="container-kick">
       <p>Já sei a palavra!</p>
