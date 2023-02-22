@@ -28,14 +28,10 @@ export default function App() {
     return Math.random() - 0.5;
   }
 
-  function reload() {
-    document.location.reload();
-  }
-
   function startGame() {
     if (reset) {
       reset = false;
-      reload();
+      window.location.reload(true);
     }
     setError(0);
     setImage(forca0);
@@ -104,10 +100,6 @@ export default function App() {
     }
   }
 
-  function changeInput(e) {
-    setKick(e.target.value);
-  }
-
   function endGame() {
     if (error > 5 && underline !== word.join("")) {
       setStatusGame("userLost");
@@ -123,6 +115,10 @@ export default function App() {
       reset = true;
       // alert("❇️ Você ganhou! ❇️");
     }
+  }
+
+  function changeInput(e) {
+    setKick(e.target.value);
   }
 
   return (
