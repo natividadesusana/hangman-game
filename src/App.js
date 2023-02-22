@@ -24,14 +24,14 @@ export default function App() {
   const [kick, setKick] = useState("");
   const [image, setImage] = useState(forca0);
 
-  function shuffle() {
-    return Math.random() - 0.5;
-  }
+  const refresh = () => window.location.reload(true);
+
+  const shuffle = () => Math.random() - 0.5;
 
   function startGame() {
     if (reset) {
       reset = false;
-      window.location.reload(true);
+      refresh();
     }
     setError(0);
     setImage(forca0);
