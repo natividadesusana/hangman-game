@@ -17,6 +17,7 @@ let underline = "";
 let reset = false;
 
 export default function App() {
+  
   const [stateWord, setStateWord] = useState("");
   const [error, setError] = useState(0);
   const [start, setStart] = useState(true);
@@ -24,12 +25,12 @@ export default function App() {
   const [kick, setKick] = useState("");
   const [image, setImage] = useState(forca0);
 
-  function reload() {
-    document.location.reload();
-  }
-
   function shuffle() {
     return Math.random() - 0.5;
+  }
+
+  function reload() {
+    document.location.reload();
   }
 
   function startGame() {
@@ -40,7 +41,7 @@ export default function App() {
     setError(0);
     setImage(forca0);
     palavras.sort(shuffle);
-    word = Array.from(palavras[palavras.length - 1].normalize("NFD").replace(/[^a-z\s]/g, ""));
+    word = Array.from(palavras[palavras.length - 1].normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g, ''));
     setStart(false);
     underline = "";
     for (let i = 0; i < word.length; i++) {
@@ -86,18 +87,20 @@ export default function App() {
 
   function kickGame() {
     if (word.join("") === kick.toLowerCase().normalize("NFD").replace(/[^a-z\s]/g, "")) {
+      setKick('');
       setStatusGame("userWon");
       setStateWord(word);
       setStart(true);
       reset = true;
-      alert("Você ganhou!");
+      alert("❇️ Você ganhou! ❇️");
     } else if (word.join("") !== kick.toLowerCase().normalize("NFD").replace(/[^a-z\s]/g, "")) {
+      setKick('');
       setStatusGame("userLost");
       setError(6);
       setStart(true);
       setStateWord(word);
       reset = true;
-      alert("Você perdeu!");
+      alert("💢 Você perdeu! 💢");
       setImage(forca6);
     }
   }
@@ -112,14 +115,14 @@ export default function App() {
       setStart(true);
       setStateWord(word);
       setError(6);
-      alert("Você perdeu!");
+      alert("💢 Você perdeu! 💢");
       setImage(forca6);
       reset = true;
     } else if (underline === word.join("")) {
       setStatusGame("userWon");
       setStart(true);
       reset = true;
-      alert("Você ganhou!");
+      alert("❇️ Você ganhou! ❇️");
     }
   }
 
@@ -134,7 +137,7 @@ export default function App() {
         errorNumbers={error}
         imgGallows={image}
       />
-      <Letters clickedLetter={letterClicked} starting={start} />
+      <Letters starting={start} clickedLetter={letterClicked} />
       <Kick
         starting={start}
         kicking={kick}

@@ -1,4 +1,5 @@
-export default function Game(props) {
+export default function Game({imgGallows, gameStarted, starting, newWord, status, state}) {
+  
   return (
     <div>
       <h1>Jogo da Forca</h1>
@@ -6,7 +7,7 @@ export default function Game(props) {
         <div className="gallows-image">
           <img
             data-test="game-image"
-            src={props.imgGallows}
+            src={imgGallows}
             alt="gallows"
           ></img>
         </div>
@@ -14,18 +15,18 @@ export default function Game(props) {
         <div className="choose-word">
           <button
             data-test="choose-word"
-            onClick={props.gameStarted}
-            disabled={props.starting}
+            onClick={gameStarted}
+            disabled={starting}
           >
             Escolher Palavra
           </button>
 
           <p
             data-test="word"
-            answer={props.newWord}
-            className={`wordChoose ${props.status}`}
+            answer={newWord}
+            className={`wordChoose ${status}`}
           >
-            {props.state}
+            {state}
           </p>
         </div>
       </div>

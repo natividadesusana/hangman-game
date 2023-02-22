@@ -171,3 +171,9 @@ h1 {
 .container-kick button:hover {
   background-color: #cee99b;
 }
+
+input::placeholder {
+  color: #aaa;
+  font-weight: 400;
+  font-size: 20px;
+}
