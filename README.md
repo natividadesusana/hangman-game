@@ -1,12 +1,12 @@
-# Hangman Project 
+# *Hangman Project* 
 
-<img align="left" width="495" alt="Captura de Tela 2023-02-22 às 10 23 29" src="https://user-images.githubusercontent.com/95102911/220632528-81dce034-4f04-4342-930b-b0a12f6db0dd.png?raw=true">
+<img align="left" width="480" alt="Captura de Tela 2023-02-22 às 10 23 29" src="https://user-images.githubusercontent.com/95102911/220632528-81dce034-4f04-4342-930b-b0a12f6db0dd.png?raw=true">
 
-<img width="495" alt="Captura de Tela 2023-02-22 às 10 26 03" src="https://user-images.githubusercontent.com/95102911/220633073-a3c7411b-b7d0-4df9-81bd-7ff3bde396df.png">
+<img width="480" alt="Captura de Tela 2023-02-22 às 10 26 03" src="https://user-images.githubusercontent.com/95102911/220633073-a3c7411b-b7d0-4df9-81bd-7ff3bde396df.png?raw=true">
 
-<img align="left" width="495" alt="Captura de Tela 2023-02-22 às 10 27 33" src="https://user-images.githubusercontent.com/95102911/220633421-99284e40-e600-4146-828b-b6da9813614e.png?raw=true">
+<img align="left" width="480" alt="Captura de Tela 2023-02-22 às 10 27 33" src="https://user-images.githubusercontent.com/95102911/220633421-99284e40-e600-4146-828b-b6da9813614e.png?raw=true">
 
-<img width="495" alt="Captura de Tela 2023-02-22 às 10 39 24" src="https://user-images.githubusercontent.com/95102911/220636115-782aa2ed-bf01-473e-aa81-d99387ab5737.png">
+<img width="480" alt="Captura de Tela 2023-02-22 às 10 39 24" src="https://user-images.githubusercontent.com/95102911/220636115-782aa2ed-bf01-473e-aa81-d99387ab5737.png?raw=true">
 
 ____
 
@@ -83,7 +83,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ______
 
-# ✅ Requirements
+## ✅ *Requirements*
 
 - Componentization
      - [ ] Your game should have 3 components:
