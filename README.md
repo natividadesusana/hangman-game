@@ -1,11 +1,11 @@
 # *Hangman Project* 
 
 <img align="center" width="550" alt="Captura de Tela 2023-02-22 às 10 23 29" src="https://user-images.githubusercontent.com/95102911/220632528-81dce034-4f04-4342-930b-b0a12f6db0dd.png">
----
+
 <img align="center" width="550" alt="Captura de Tela 2023-02-22 às 10 26 03" src="https://user-images.githubusercontent.com/95102911/220633073-a3c7411b-b7d0-4df9-81bd-7ff3bde396df.png">
----
+
 <img align="center" width="550" alt="Captura de Tela 2023-02-22 às 10 27 33" src="https://user-images.githubusercontent.com/95102911/220633421-99284e40-e600-4146-828b-b6da9813614e.png">
----
+
 <img align="center" width="550" alt="Captura de Tela 2023-02-22 às 10 39 24" src="https://user-images.githubusercontent.com/95102911/220636115-782aa2ed-bf01-473e-aa81-d99387ab5737.png">
 
 ____
@@ -120,3 +120,20 @@ ______
      - [ ] If the user loses:
          - [ ] The final image that should appear is that of the hanged doll (forca6).
          - [ ] The word must be revealed, but in **red.**
+
+## ☑️ *Bonus*
+
+- Restart the game
+     - [ ] At any time, the user can restart the game by pressing the “choose word” button.
+     - [ ] A new word is drawn.
+     - The game should return to the initial state (0 errors, initial image of the gallows, word only with lines, all letter buttons enabled).
+- Kick *Input*
+     - [ ] Create a new component in your project called `Chute`. This component should have an input and a button where the user can guess the whole word if he wants to
+     - [ ] When doing this, if he hits the word, he immediately wins.
+         - [ ] The correct word appears complete and in green color
+     - [ ] But if he misses, he immediately loses, regardless of the previous miss count. The image that should appear at this moment is that of the hanged doll (forca6).
+     - [ ] The input must be disabled in two cases: before starting the game and after finishing (win or lose)
+- Consider special characters
+     - [ ] When the user presses a letter without an accent (eg: a) and, in the word, there is the same letter but with an accent (eg: à, á, â, ã), it must be considered as correct.
+     - [ ] In addition to the accents, also consider that c and ç are equivalent.
+     - If you do this challenge, replace the array of words with the new one.
