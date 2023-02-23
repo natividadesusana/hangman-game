@@ -29,7 +29,6 @@ export default function App() {
   function refreshPage() {
     if (reset) {
       reset = true;
-      // window.location.reload();
       setStateWord('');
       setError(0);
       setStatusGame('');
@@ -92,7 +91,6 @@ export default function App() {
       setStateWord(word);
       setStart(true);
       reset = true;
-      // alert("❇️ Você ganhou! ❇️");
     } else if (word.join("") !== kick.toLowerCase().normalize("NFD").replace(/[^a-z\s]/g, "")) {
       setKick('');
       setStatusGame("userLost");
@@ -100,7 +98,6 @@ export default function App() {
       setStart(true);
       setStateWord(word);
       reset = true;
-      // alert("💢 Você perdeu! 💢");
       setImage(forca6);
     }
   }
@@ -111,14 +108,12 @@ export default function App() {
       setStart(true);
       setStateWord(word);
       setError(6);
-      // alert("💢 Você perdeu! 💢");
       setImage(forca6);
       reset = true;
     } else if (underline === word.join("")) {
       setStatusGame("userWon");
       setStart(true);
       reset = true;
-      // alert("❇️ Você ganhou! ❇️");
     }
   }
 
