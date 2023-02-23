@@ -29,7 +29,7 @@ export default function App() {
   function refreshPage() {
     if (reset) {
       reset = true;
-      window.location.reload();
+      // window.location.reload();
       setStateWord('');
       setError(0);
       setStatusGame('');
