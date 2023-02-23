@@ -24,17 +24,22 @@ export default function App() {
   const [kick, setKick] = useState("");
   const [image, setImage] = useState(forca0);
 
-  const refresh = () => window.location.reload(true);
-
   const shuffle = () => Math.random() - 0.5;
 
-  function startGame() {
+  function refreshPage() {
     if (reset) {
-      reset = false;
-      refresh();
+      reset = true;
+      window.location.reload();
+      setStateWord('');
+      setError(0);
+      setStatusGame('');
+      setKick('');
+      setImage(forca0);
     }
-    setError(0);
-    setImage(forca0);
+    startGame();
+  }
+
+  function startGame() {
     palavras.sort(shuffle);
     word = Array.from(palavras[palavras.length - 1].normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g, ''));
     setStart(false);
@@ -124,7 +129,7 @@ export default function App() {
   return (
     <>
       <Game
-        gameStarted={startGame}
+        gameStarted={refreshPage}
         state={stateWord}
         starting={!start}
         newWord={word.join("")}
