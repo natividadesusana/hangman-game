@@ -3,7 +3,6 @@ import Game from "./components/Game";
 import Letters from "./components/Letters";
 import Kick from "./components/Kick";
 import palavras from "./palavras";
-import alphabet from "./components/Letters"
 
 import forca0 from "./assets/img/forca0.png";
 import forca1 from "./assets/img/forca1.png";
@@ -24,7 +23,6 @@ export default function App() {
   const [statusGame, setStatusGame] = useState("");
   const [kick, setKick] = useState("");
   const [image, setImage] = useState(forca0);
-  const [lettersUsed, setLettersUsed] = useState(alphabet);
 
   const shuffle = () => Math.random() - 0.5;
 
@@ -35,7 +33,6 @@ export default function App() {
       setError(0);
       setStatusGame('');
       setKick('');
-      setLettersUsed([]);
       setImage(forca0);
     }
     startGame();
@@ -135,7 +132,7 @@ export default function App() {
         errorNumbers={error}
         imgGallows={image}
       />
-      <Letters starting={start} clickedLetter={letterClicked} usedLetters={lettersUsed}/>
+      <Letters starting={start} clickedLetter={letterClicked} />
       <Kick
         starting={start}
         kicking={kick}

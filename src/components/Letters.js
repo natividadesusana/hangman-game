@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default function Letters({ clickedLetter, starting }) {
+export default function Letters({clickedLetter, starting}) {
   const alphabet = [
     "a",
     "b",
@@ -46,19 +46,26 @@ export default function Letters({ clickedLetter, starting }) {
   );
 }
 
-function Buttons({ usedLetters, clicked, started, buttons }) {
+function Buttons({clicked, started, buttons}) {
+  const [disabledButton, setDisabledButton] = useState(false);
+
+  function disabling() {
+    setDisabledButton(true);
+  }
+
   return (
     <button
       data-test="letter"
       onClick={() => {
         clicked();
+        disabling();
       }}
       className={
-        started || usedLetters.includes(buttons.toLowerCase())
+        started || disabledButton
           ? "letters-selected"
           : "letters-unselected"
       }
-      disabled={started || usedLetters.includes(buttons.toLowerCase())}
+      disabled={started || disabledButton}
     >
       {buttons}
     </button>
