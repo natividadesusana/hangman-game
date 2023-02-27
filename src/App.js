@@ -16,19 +16,51 @@ let word = [];
 let underline = "";
 let reset = false;
 
+let alphabet = [
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+];
+
 export default function App() {
+  
   const [stateWord, setStateWord] = useState("");
   const [error, setError] = useState(0);
   const [start, setStart] = useState(true);
   const [statusGame, setStatusGame] = useState("");
   const [kick, setKick] = useState("");
   const [image, setImage] = useState(forca0);
+  const [lettersUsed, setLettersUsed] = useState(alphabet);
 
   const shuffle = () => Math.random() - 0.5;
 
   function refreshPage() {
     if (reset) {
       reset = true;
+      setLettersUsed([]);
       setStateWord('');
       setError(0);
       setStatusGame('');
@@ -132,7 +164,7 @@ export default function App() {
         errorNumbers={error}
         imgGallows={image}
       />
-      <Letters starting={start} clickedLetter={letterClicked} />
+      <Letters starting={start} clickedLetter={letterClicked} lettersUsed={lettersUsed}/>
       <Kick
         starting={start}
         kicking={kick}
